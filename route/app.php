@@ -36,5 +36,6 @@ Route::group("type",function (){
 
 Route::group("article",function (){
     Route::get("list/:type","article/getListByType");
-
+    Route::get("list","article/getListByType");
+    Route::get("detail/:id","article/getDetailById");
 })->prefix("article/");

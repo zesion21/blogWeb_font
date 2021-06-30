@@ -5,6 +5,8 @@ namespace app\Result;
 
 
 
+use think\response\Json;
+
 class Result
 {
     var $code;
@@ -18,9 +20,14 @@ class Result
         $this->msg=$msg;
     }
 
-    public static function success($data,$msg="success"):\think\response\Json
+    public static function success($data,$msg="success"):Json
     {
         return json(new Result(200,$data,$msg));
+    }
+
+    public  static  function  error($code,$msg="未知错误"):Json{
+
+        return json(new Result($code,null,$msg));
     }
 
 }
